@@ -17,7 +17,7 @@ def main():
                             if  not wilb.isdigit() and not wilb=='.' and wilb!="\n":
                                 detected=True
             elif   detected:
-                satter.append(n) 
+                satter.append(n)
                 sume+=n 
                 detected=False
                 n=0
