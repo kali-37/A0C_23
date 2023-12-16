@@ -37,26 +37,37 @@ def main(dataset)->None:
         _spl1=i.split()  
         _spl=_spl1[0]     
         hash_rank[_spl]=int(_spl1[1])
+        _j_counter=0
         for k in _spl:
-            counter[k]=(counter.get(k,0))+1
+            # counter[k]=(counter.get(k,0))+1
+            if k=="J":
+                _j_counter+=1
+            else:
+                counter[k]=(counter.get(k,0))+1
+
         _cou_var=counter.values()
-        print(_spl,"   ",_cou_var)
-        if 5 in _cou_var:  # five of kind
+        if _cou_var: 
+            _x=max(_cou_var)+_j_counter 
+        else:
+            _x=+_j_counter
+        # print("_X",_x,max(_cou_var),_j_counter)
+        print(_spl,"   ",_cou_var,_x)
+        if _x==5:  # five of kind
             indexer(6,_spl)
-        elif 4 in _cou_var:  # four of kind
+        elif _x==4:  # four of kind
             indexer(5,_spl)
-        elif 3 in _cou_var and 2 in _cou_var: # house full
+        elif _x==3  and 2 in _cou_var: # house full
             indexer(4,_spl)
-        elif  3 in _cou_var:  # Three of kind
+        elif  _x==3:  # Three of kind
             indexer(3,_spl)
-        elif len((_cou_var))==3:  # Two pair
+        elif len((_cou_var))-_j_counter==3:  # Two pair
             indexer(2,_spl)
-        elif 2 in _cou_var: # One pair
+        elif _x== 2 : # One paie
             indexer(1,_spl)
-        elif len(_cou_var)==5: # High pair
+        elif len(_cou_var)+_j_counter==5: # High pair
             indexer(0,_spl)
         else:
-            print("ERROR Occured",_cou_var) 
+            print("ERROR Occured",_cou_var,_spl) 
             exit()
         counter={} # reset counter 
     _rankiser=1
