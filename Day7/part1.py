@@ -3,7 +3,7 @@ from collections import defaultdict
 
 hand:dict[int,list]=defaultdict(list)
 
-def rank_checker(_argv):
+def rank_checker(_argv)->int:
     _greatness="23456789TJQKA"
     for i in range(len(_greatness)):
         if _argv==_greatness[i]:
@@ -11,7 +11,7 @@ def rank_checker(_argv):
     print("Remove Jocker card and re-sufttle")
     exit()
 
-def indexer(_index ,_spl):
+def indexer(_index ,_spl)->None:
     _flag=False
     if hand[_index]:
         _counter=-1
@@ -30,9 +30,7 @@ def indexer(_index ,_spl):
     if not _flag:                 
         hand[_index].append(_spl)
 
-
-
-def main(dataset):
+def main(dataset)->None:
     hash_rank:dict[str,int]={}
     counter:dict[str,int]={}
     for i in dataset:
@@ -46,7 +44,6 @@ def main(dataset):
         if 5 in _cou_var:  # five of kind
             indexer(6,_spl)
         elif 4 in _cou_var:  # four of kind
-            # hand[5].append(_spl) 
             indexer(5,_spl)
         elif 3 in _cou_var and 2 in _cou_var: # house full
             indexer(4,_spl)
@@ -62,14 +59,19 @@ def main(dataset):
             print("ERROR Occured",_cou_var) 
             exit()
         counter={} # reset counter 
-            
-    print(hand)
+    _rankiser=1
+    _return=0
+    for i in range(7):
+        if hand[i]:
+            for k in hand[i]:
+                _return+=hash_rank[k]*_rankiser
+                _rankiser+=1
 
+    print(_return)
 if __name__=="__main__":
     if len(argv)>=2:
         with open(argv[1],"r") as f :
-            
-            dataset=f.readlines()
+            dataset:list=f.readlines()
             main(dataset)
     else:
         print("Usage: python3 part__.py <input.txt>")  
