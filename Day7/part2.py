@@ -8,7 +8,7 @@ def rank_checker(_argv)->int:
     for i in range(len(_greatness)):
         if _argv==_greatness[i]:
             return  i
-    print("Remove Jocker card and re-sufttle")
+    print("sorry more then jocker enters the house")
     exit()
 
 def indexer(_index ,_spl)->None:
@@ -56,7 +56,7 @@ def main(dataset)->None:
             indexer(6,_spl)
         elif _x==4:  # four of kind
             indexer(5,_spl)
-        elif _x==3  and 2 in _cou_var: # house full
+        elif _x==3  and len(_cou_var)==2 : # house full
             indexer(4,_spl)
         elif  _x==3:  # Three of kind
             indexer(3,_spl)
