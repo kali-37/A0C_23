@@ -60,11 +60,11 @@ def main(dataset)->None:
             indexer(4,_spl)
         elif  _x==3:  # Three of kind
             indexer(3,_spl)
-        elif len((_cou_var))-_j_counter==3:  # Two pair
+        elif len((_cou_var))==3:  # Two pair
             indexer(2,_spl)
         elif _x== 2 : # One paie
             indexer(1,_spl)
-        elif len(_cou_var)+_j_counter==5: # High pair
+        elif len(_cou_var)==5: # High pair
             indexer(0,_spl)
         else:
             print("ERROR Occured",_cou_var,_spl) 
