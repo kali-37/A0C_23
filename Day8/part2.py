@@ -4,7 +4,7 @@ import math
 
 def main(dataset:list)->None:
     _mover:str=dataset[0].split("\n")[0]
-    _mapper:dict[str,tuple]={}
+    _mapper:dict[str|int,tuple]={}
     _With_A=[]
     for i in dataset[2:]:
         parent,child1,child2=re.search(r"(...)\s=\s\((...),\s(...)\)|\n",i).groups(0)
