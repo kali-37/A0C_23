@@ -33,7 +33,6 @@ for (let i of  _file_array)    {
 }
         for (let val of Object.values(dicter)){
             val=val.sort((a,b)=>a[0]-b[0])
-
                 sum+=val[0][1]*10+val[val.length-1][1];
             console.log(val);
         }

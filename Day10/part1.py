@@ -11,7 +11,6 @@ calc_moves:dict[str,list[tuple]]={
     "\n":[(-9,-9)]
 }
 _directions=[[1,0],[-1,0],[0,-1],[0,1]]
-
 class Node:
     _max_depth:int=0
     def __init__(self,value,x,y,_r_max,_c_max)->None:

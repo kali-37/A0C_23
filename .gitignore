@@ -1,1 +1,6 @@
 .venv
+# package-lock.json
+# package.jsoneslintrc.json
+node*
+.eslintrc.json
+package* 
