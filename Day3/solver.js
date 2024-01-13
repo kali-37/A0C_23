@@ -28,7 +28,7 @@ function main(){
            for (i of _matrix)
                {
                 _r=i[0]+row;
-                _c=i[1]+col;
+                _c=i[1]+col;    
                 if (0<=_r && _r<_max_row && 0<=_c && _c<_max_col)
                 {
                     if (data[_r][_c]!='.' && !(isdigit(data[_r][_c]) && data[_r][_c]!="\n" && data[_r][_c]!=" "))

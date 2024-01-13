@@ -17,6 +17,7 @@ def main(dataset):
     length=0
     for i in frontline:
         lne=(len(frontline[i].intersection(set(i))))
+        print(lne)
         if lne:
             length+=2**(lne-1)
     print(length)
